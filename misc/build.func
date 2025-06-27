@@ -1076,7 +1076,7 @@ EOF'
     export LANG=\$locale_line"
 
     if pct exec "$CTID" -- test -e "/usr/share/zoneinfo/$tz"; then
-      pct exec "$CTID" -- bash -c "echo $tz >/etc/timezone && ln -sf /usr/share/zoneinfo/$tz /etc/localtime"
+      pct exec "$CTID" -- bash -c "echo '${tz}' >/etc/timezone && ln -sf '/usr/share/zoneinfo/${tz}' /etc/localtime"
     else
       msg_info "Skipping timezone setup – zone '$tz' not found in container"
     fi
